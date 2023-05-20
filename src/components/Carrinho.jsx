@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export default function Carrinho(props) {
   const { carrinho, setCarrinho } = props;
-  console.log("Dentro de Carrinho tem carrinho:", carrinho);
+  // console.log("Dentro de Carrinho tem carrinho:", carrinho);
 
   return (
     <ContainerCarrinho>

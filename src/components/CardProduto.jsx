@@ -4,6 +4,20 @@ export default function CardProduto(props) {
   // console.log("props em CardProduto", props.produto);
 
   const { imagem, nome, preco } = props.produto;
+  const { carrinho, setCarrinho } = props
+
+  function adicionarProduto(prod) {
+    //Caso o item já esteja no carrinho, nada deverá acontecer (dicas 🙂).
+    const estaJaAdicionado = carrinho.some((p) => p.id === prod.id); //some retorna em true ou false
+    
+    //Caso o item não esteja no carrinho, deverá ser adicionado.
+    if(!estaJaAdicionado) {
+      const novoCarrinho = [...carrinho, prod]
+     setCarrinho(novoCarrinho)
+    }
+
+    console.log("prod.nome da function adicionarProduto:", prod.nome);
+  }
 
   return (
     <ItemProduto>
@@ -12,7 +26,7 @@ export default function CardProduto(props) {
         <p>{nome}</p>
         <p>{preco}</p>
       </div>
-      <button>Comprar</button>
+      <button onClick={() => adicionarProduto(props.produto)}>Comprar</button>
     </ItemProduto>
   );
 }

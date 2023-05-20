@@ -5,7 +5,7 @@ import PRODUTOS from "./mock";
 import { useState } from "react";
 
 export default function App() {
-  const [carrinho, setCarrinho] = useState([...PRODUTOS]);
+  const [carrinho, setCarrinho] = useState([]);
 
   return (
     <ContainerApp>
