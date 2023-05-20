@@ -8,7 +8,12 @@ export default function Carrinho(props) {
   return (
     <ContainerCarrinho>
       {carrinho.map((prod) => (
-        <CardCarrinho key={prod.id} produto={prod} />
+        <CardCarrinho
+          key={prod.id}
+          produto={prod}
+          carrinho={carrinho}
+          setCarrinho={setCarrinho}
+        />
       ))}
     </ContainerCarrinho>
   );

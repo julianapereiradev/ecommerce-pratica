@@ -3,7 +3,20 @@ import styled from "styled-components";
 export default function CardCarrinho(props) {
   // console.log("props em CardCarrinho:", props.produto);
 
-  const { imagem, nome, preco } = props.produto;
+  const { imagem, nome, preco, id } = props.produto;
+  const {carrinho, setCarrinho} = props
+
+
+function excluirItem(id) {
+const novoCarrinho = carrinho.filter((prod => {
+  if(prod.id !== id) {
+    return true
+  } else {
+    return false
+  }
+}))
+setCarrinho(novoCarrinho)
+}
 
   return (
     <ItemCarrinho>
@@ -12,7 +25,7 @@ export default function CardCarrinho(props) {
         <strong>{nome}</strong>
         <div>{preco}</div>
       </div>
-      <button>X</button>
+      <button onClick={() => excluirItem(id)}>X</button>
     </ItemCarrinho>
   );
 }
